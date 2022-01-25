@@ -1,19 +1,22 @@
+import { Image } from "mdx-deck";
 import {
   CodeSurfer,
   CodeSurferColumns,
   Step,
 } from "code-surfer";
 import { github, vsDark } from "@code-surfer/themes";
+import todoList from "./images/todo-list.gif";
+import citiesList from "./images/cities-list.gif";
 
 export const theme = vsDark;
 
-# React Testing Library & Mock Service Worker
+# RTL + MSW = !!!
 
 The latest in frontend testing
 
 ---
 
-GIF...
+<Image src="https://media1.giphy.com/media/SQiQu6lbG8bn2/giphy.gif?cid=ecf05e47c06ljbs1bj3lddbkoba2zw9agdbj05m7eceigow8&rid=giphy.gif&ct=g" />
 
 ---
 
@@ -53,7 +56,7 @@ _“The more your tests resemble the way your software is used, the more confide
 
 ---
 
-RTL Helpful Error Messages
+<Image src="https://media0.giphy.com/media/AOSwwqVjNZlDO/giphy.gif?cid=ecf05e47o5edhi3sgt6o67ekcv34vwxyyuvknfk8t5x4vckt&rid=giphy.gif&ct=g" />
 
 ---
 
@@ -111,29 +114,220 @@ RTL Helpful Error Messages
 
 ---
 
+<Image src={todoList} height="70%" width="70%" />
+
+---
+
+<CodeSurferColumns themes={[vsDark, github]} title="Todo List">
+
+<Step>
+
+```jsx file=./components/TodoList.js
+
+```
+
+```jsx file=./tests/TodoList.test.js
+
+```
+
+</Step>
+
+<Step>
+
+```jsx file=./components/TodoList.js
+
+```
+
+```jsx 6:17 file=./tests/TodoList.test.js
+
+```
+
+</Step>
+
+<Step>
+
+```jsx file=./components/TodoList.js
+
+```
+
+```jsx 19:24 file=./tests/TodoList.test.js
+
+```
+
+</Step>
+
+<Step>
+
+```jsx file=./components/TodoList.js
+
+```
+
+```jsx 26:51 file=./tests/TodoList.test.js
+
+```
+
+</Step>
+
+</CodeSurferColumns>
+
+---
+
 <CodeSurfer>
 
 ```js
-console.log(1);
-console.log(2);
-console.log(3);
-```
+TestingLibraryElementError: Unable to find an accessible element with the role "button" and name `/Your todo/`
 
-```js 1
-console.log(1);
-console.log(2);
-console.log(3);
-```
+Here are the accessible roles:
 
-```js
-console.log(1);
-console.log(2);
-console.log(3);
-console.log(4);
-console.log(5);
+heading:
+
+Name "Todo List":
+<h2 />
+
+--------------------------------------------------
+textbox:
+
+Name "Your todo":
+<input
+  aria-label="Your todo"
+  name="todo"
+  placeholder="Add todo..."
+  required=""
+  type="text"
+  value=""
+/>
+
+--------------------------------------------------
+button:
+
+Name "Add":
+<button
+  type="submit"
+/>
+
+--------------------------------------------------
+list:
+
+Name "":
+<ul />
+
+--------------------------------------------------
 ```
 
 </CodeSurfer>
+
+---
+
+<Image src={citiesList} height="80%" width="70%" />
+
+---
+
+# Mock Service Worker
+
+<Image
+  src="https://mermaid.ink/img/eyJjb2RlIjoic2VxdWVuY2VEaWFncmFtXG5cdEJyb3dzZXIgLT4-IFNlcnZpY2UgV29ya2VyOiAxLiByZXF1ZXN0XG4gIFNlcnZpY2UgV29ya2VyIC0tPj4gbXN3OiAyLiByZXF1ZXN0IGNsb25lXG4gIG1zdyAtLT4-IG1zdzogMy4gbWF0Y2ggYWdhaW5zdCBtb2Nrc1xuICBtc3cgLS0-PiBTZXJ2aWNlIFdvcmtlcjogNC4gTW9ja2VkIHJlc3BvbnNlXG4gIFNlcnZpY2UgV29ya2VyIC0-PiBCcm93c2VyOiA1LiByZXNwb25kV2l0aChtb2NrZWRSZXNwb25zZSlcblx0XHRcdFx0XHQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlfQ"
+  height={500}
+  width={800}
+/>
+
+---
+
+<CodeSurfer>
+
+```js
+// jest.setup.js
+
+import "@testing-library/jest-dom";
+import { mswServer } from "./mocks/msw-worker";
+
+// start server listening at the beginning of any test run
+beforeAll(() => mswServer.listen());
+// reset handlers to initial chosen values
+afterEach(() => mswServer.resetHandlers());
+// close the server after every test run
+afterAll(() => mswServer.close());
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```js
+// ./mocks/msw-worker.js
+
+import { setupServer } from "msw/node";
+import { handlers } from "./handlers";
+
+export const mswServer = setupServer(...handlers);
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurfer>
+
+```js file=./mocks/handlers.js
+
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurferColumns themes={[vsDark, github]} title="Cities List">
+
+<Step>
+
+```jsx file=./components/CitiesList.js
+
+```
+
+```jsx file=./tests/CitiesList.test.js
+
+```
+
+</Step>
+
+<Step>
+
+```jsx file=./components/CitiesList.js
+
+```
+
+```jsx 13:19 file=./tests/CitiesList.test.js
+
+```
+
+</Step>
+
+<Step>
+
+```jsx file=./components/CitiesList.js
+
+```
+
+```jsx 21:35 file=./tests/CitiesList.test.js
+
+```
+
+</Step>
+
+<Step>
+
+```jsx file=./components/CitiesList.js
+
+```
+
+```jsx 37:46 file=./tests/CitiesList.test.js
+
+```
+
+</Step>
+
+</CodeSurferColumns>
 
 ---
 
