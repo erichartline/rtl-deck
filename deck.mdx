@@ -7,139 +7,102 @@ import { github, vsDark } from "@code-surfer/themes";
 
 export const theme = vsDark;
 
-# Hello 👋
+# React Testing Library & Mock Service Worker
 
-You are using [MDX Deck](https://github.com/jxnblk/mdx-deck) and [Code Surfer](https://codesurfer.pomb.us)
-
----
-
-<CodeSurfer>
-
-```js title="This is a title" subtitle="and this a subtitle"
-function lorem(ipsum, dolor = 1) {
-  const sit = ipsum == null ? 0 : ipsum.sit;
-  dolor = sit - amet(dolor);
-  return sit
-    ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor)
-    : [];
-}
-
-function incididunt(ipsum, ut = 1) {
-  ut = labore.et(amet(ut), 0);
-  const sit = ipsum == null ? 0 : ipsum.sit;
-
-  if (!sit || ut < 1) {
-    return [];
-  }
-
-  let dolore = 0;
-  let magna = 0;
-  const aliqua = new eiusmod(labore.ut(sit / ut));
-
-  while (dolore < sit) {
-    aliqua[magna++] = consectetur(
-      ipsum,
-      dolore,
-      (dolore += ut)
-    );
-  }
-
-  return aliqua;
-}
-```
-
-```js
-function lorem(ipsum, dolor = 1) {
-  const sit = ipsum == null ? 0 : ipsum.sit;
-  dolor = sit - amet(dolor);
-  return sit
-    ? consectetur(ipsum, 0, dolor < 0 ? 0 : dolor)
-    : [];
-}
-
-function adipiscing(...elit) {
-  if (!elit.sit) {
-    return [];
-  }
-
-  const sed = elit[0];
-  return eiusmod.tempor(sed) ? sed : [sed];
-}
-
-function incididunt(ipsum, ut = 1) {
-  ut = labore.et(amet(ut), 0);
-  const sit = ipsum == null ? 0 : ipsum.sit;
-
-  if (!sit || ut < 1) {
-    return [];
-  }
-
-  let dolore = 0;
-  let magna = 0;
-  const aliqua = new eiusmod(labore.ut(sit / ut));
-
-  while (dolore < sit) {
-    aliqua[magna++] = consectetur(
-      ipsum,
-      dolore,
-      (dolore += ut)
-    );
-  }
-
-  return aliqua;
-}
-```
-
-```diff 1[10:14],2[15:19],3[22:27],10:12
-
-```
-
-</CodeSurfer>
+The latest in frontend testing
 
 ---
 
-<CodeSurferColumns themes={[vsDark, github]}>
+GIF...
+
+---
+
+# What is React Testing Library?
+
+- Lightweight solution for testing React components
+- Built on DOM Testing Library
+- Encourages better testing practices
+
+_“The more your tests resemble the way your software is used, the more confidence they can give you.”_
+
+---
+
+# Differences with Enzyme
+
+- RTL does not test implementation details (props, state, etc)
+- RTL is full DOM rendering only
+- Enzyme does not fully support React hooks
+- RTL now bundled with _create-react-app_
+
+...
+
+### _What is the user trying to do?_
+
+---
+
+# RTL Query Methods
+
+- getByRole
+- getByLabelText
+- getByPlaceholderText
+- getByText
+- getByDisplayValue
+- getByAltText
+- getByTitle
+- getByTestId
+
+---
+
+RTL Helpful Error Messages
+
+---
+
+<CodeSurferColumns themes={[vsDark, github]} title="Hello, World!">
 
 <Step>
 
-```js
-const magna = aliqua => aliqua.ut((enim, ad) => enim, 0);
+```jsx file=./components/HelloWorld.js
+
 ```
 
-```js
-const minim = (ad, enim) => dolore.magna(ad / enim);
+```jsx file=./tests/HelloWorld.test.js
+
 ```
 
 </Step>
 
 <Step>
 
-```js
-const lorem = (ipsum, dolor, sit) => {
-  const amet = dolor - ipsum;
-  return consectetur.adipiscing(
-    {
-      elit: sed.eiusmod(sit - dolor) / amet + 2,
-    },
-    (tempor, incididunt) => ipsum + amet * incididunt
-  );
-};
+```jsx file=./components/HelloWorld.js
 
-const magna = aliqua => aliqua.ut((enim, ad) => enim, 0);
 ```
 
-```js
-const minim = (ad, enim) => dolore.magna(ad / enim);
+```jsx 1 file=./tests/HelloWorld.test.js
 
-const sed = (eiusmod, tempor, incididunt) => {
-  const ut = tempor - eiusmod;
-  return labore.et(
-    {
-      amet: dolore.magna(incididunt - tempor) / ut + 2,
-    },
-    (aliqua, elit) => eiusmod + ut * elit
-  );
-};
+```
+
+</Step>
+
+<Step>
+
+```jsx file=./components/HelloWorld.js
+
+```
+
+```jsx 6 file=./tests/HelloWorld.test.js
+
+```
+
+</Step>
+
+<Step>
+
+```jsx file=./components/HelloWorld.js
+
+```
+
+```jsx 7 file=./tests/HelloWorld.test.js
+
 ```
 
 </Step>
@@ -148,5 +111,32 @@ const sed = (eiusmod, tempor, incididunt) => {
 
 ---
 
-docs:  
-[codesurfer.pomb.us](https://codesurfer.pomb.us)
+<CodeSurfer>
+
+```js
+console.log(1);
+console.log(2);
+console.log(3);
+```
+
+```js 1
+console.log(1);
+console.log(2);
+console.log(3);
+```
+
+```js
+console.log(1);
+console.log(2);
+console.log(3);
+console.log(4);
+console.log(5);
+```
+
+</CodeSurfer>
+
+---
+
+# Questions?
+
+- Built using MDX Deck and Code Surfer
