@@ -1,4 +1,4 @@
-import { Image } from "mdx-deck";
+import { Image, Notes } from "mdx-deck";
 import {
   CodeSurfer,
   CodeSurferColumns,
@@ -28,6 +28,17 @@ The latest in frontend testing
 
 _“The more your tests resemble the way your software is used, the more confidence they can give you.”_
 
+<Notes>
+DOM Testing Library is a lightweight solution for testing DOM nodes. It provides utilities to query the DOM the same way the user would.
+
+Examples:
+
+- Finding form elements by their label text
+- Finding links and buttons from their text
+- Exposes a `data-testid` attribute as an escape hatch for elements lacking text content, labels or accessible ways to find them
+
+</Notes>
+
 ---
 
 # Differences with Enzyme
@@ -36,6 +47,18 @@ _“The more your tests resemble the way your software is used, the more confide
 - RTL is full DOM rendering only
 - Enzyme does not fully support React hooks
 - RTL now bundled with _create-react-app_
+
+<Notes>
+Notes:
+
+- RTL only cares about the interactions between the user and the browser, not the internals of React
+- One problem with testing implementation details is that refactoring can often break tests
+- Example: if you rename a state value or change its type from a string to an array
+- RTL focuses mainly on integration tests. Child components aren't mocked like Enzyme's shallow rendering.
+- Lifecycle hooks such as useEffect are not supported in Enzyme's shallow rendering since those hooks don't get called.
+- There are workarounds, but they aren't pretty.
+
+</Notes>
 
 ...
 
@@ -53,6 +76,20 @@ _“The more your tests resemble the way your software is used, the more confide
 - getByAltText
 - getByTitle
 - getByTestId
+
+<Notes>
+Notes:
+
+- Button, textbox, etc (also pass in config with name, etc)
+- Good for form fields
+- Next best option for form fields
+- Best for divs, spans, paragraphs
+- Current value of the form, useful for filled-in values
+- For elements that support alt text (img, area, input)
+- Used rarely, not consistently read by screenreaders
+- If all else fails
+
+</Notes>
 
 ---
 
