@@ -16,7 +16,14 @@ The latest in frontend testing
 
 ---
 
-<Image src="https://media1.giphy.com/media/SQiQu6lbG8bn2/giphy.gif?cid=ecf05e47c06ljbs1bj3lddbkoba2zw9agdbj05m7eceigow8&rid=giphy.gif&ct=g" />
+<img
+  src="https://media1.giphy.com/media/SQiQu6lbG8bn2/giphy.gif?cid=ecf05e47c06ljbs1bj3lddbkoba2zw9agdbj05m7eceigow8&rid=giphy.gif&ct=g"
+  style={{
+    height: "100%",
+    width: "100%",
+    objectFit: "inherit",
+  }}
+/>
 
 ---
 
@@ -26,7 +33,21 @@ The latest in frontend testing
 - Built on DOM Testing Library
 - Encourages better testing practices
 
-_“The more your tests resemble the way your software is used, the more confidence they can give you.”_
+<div
+  style={{
+    color: "#febd9c",
+    fontSize: "36px",
+    marginTop: "48px",
+    width: "60%",
+  }}
+>
+  <em>
+    <strong>
+      “The more your tests resemble the way your software is
+      used, the more confidence they can give you.”
+    </strong>
+  </em>
+</div>
 
 <Notes>
 DOM Testing Library is a lightweight solution for testing DOM nodes. It provides utilities to query the DOM the same way the user would.
@@ -48,6 +69,18 @@ Examples:
 - Enzyme does not fully support React hooks
 - RTL now bundled with _create-react-app_
 
+<div
+  style={{
+    color: "#febd9c",
+    marginTop: "48px",
+    textAlign: "center",
+  }}
+>
+  <em>
+    <strong>What is the user trying to do?</strong>
+  </em>
+</div>
+
 <Notes>
 Notes:
 
@@ -60,22 +93,29 @@ Notes:
 
 </Notes>
 
-...
-
-### _What is the user trying to do?_
-
 ---
 
 # RTL Query Methods
 
-- getByRole
-- getByLabelText
-- getByPlaceholderText
-- getByText
-- getByDisplayValue
-- getByAltText
-- getByTitle
-- getByTestId
+<div style={{ display: "flex", flexDirection: "row" }}>
+  <div style={{ marginRight: "24px" }}>
+    <ul>
+      <li>getByRole</li>
+      <li>getByLabelText</li>
+      <li>getByPlaceholderText</li>
+      <li>getByText</li>
+    </ul>
+  </div>
+
+  <div>
+    <ul>
+      <li>getByDisplayValue</li>
+      <li>getByAltText</li>
+      <li>getByTitle</li>
+      <li>getByTestId</li>
+    </ul>
+  </div>
+</div>
 
 <Notes>
 Notes:
@@ -93,7 +133,14 @@ Notes:
 
 ---
 
-<Image src="https://media0.giphy.com/media/AOSwwqVjNZlDO/giphy.gif?cid=ecf05e47o5edhi3sgt6o67ekcv34vwxyyuvknfk8t5x4vckt&rid=giphy.gif&ct=g" />
+<img
+  src="https://media0.giphy.com/media/AOSwwqVjNZlDO/giphy.gif?cid=ecf05e47o5edhi3sgt6o67ekcv34vwxyyuvknfk8t5x4vckt&rid=giphy.gif&ct=g"
+  style={{
+    height: "100%",
+    width: "100%",
+    objectFit: "inherit",
+  }}
+/>
 
 ---
 
@@ -255,7 +302,7 @@ Name "":
 
 ---
 
-<Image src={citiesList} height="80%" width="70%" />
+<Image src={citiesList} width={600} height={450} />
 
 ---
 
@@ -334,7 +381,7 @@ export const mswServer = setupServer(...handlers);
 
 ```
 
-```jsx 13:19 file=./tests/CitiesList.test.js
+```jsx 9:15 file=./tests/CitiesList.test.js
 
 ```
 
@@ -346,7 +393,7 @@ export const mswServer = setupServer(...handlers);
 
 ```
 
-```jsx 21:35 file=./tests/CitiesList.test.js
+```jsx 17:31 file=./tests/CitiesList.test.js
 
 ```
 
@@ -358,7 +405,7 @@ export const mswServer = setupServer(...handlers);
 
 ```
 
-```jsx 37:46 file=./tests/CitiesList.test.js
+```jsx 33:43 file=./tests/CitiesList.test.js
 
 ```
 
@@ -368,6 +415,10 @@ export const mswServer = setupServer(...handlers);
 
 ---
 
-# Questions?
+# Thank You!
 
-- Built using MDX Deck and Code Surfer
+<img src="https://media4.giphy.com/media/QAsBwSjx9zVKoGp9nr/giphy.gif?cid=ecf05e47nrpt7z7qgkb031iyrupzgfq43jhpmk6q69g648a8&rid=giphy.gif&ct=g" />
+
+Built using: [MDX Deck](https://github.com/jxnblk/mdx-deck) and [Code Surfer](https://github.com/pomber/code-surfer)
+
+Links: [Demo App](https://github.com/wildlifehexagon/rtl-demo) and [Presentation Code](https://github.com/wildlifehexagon/rtl-deck)
