@@ -126,7 +126,7 @@ Notes:
 - Best for divs, spans, paragraphs
 - Current value of the form, useful for filled-in values
 - For elements that support alt text (img, area, input)
-- Used rarely, not consistently read by screenreaders
+- Used rarely, title attribute is not consistently read by screenreaders
 - If all else fails
 
 </Notes>
@@ -314,6 +314,21 @@ Name "":
   width={800}
 />
 
+<Notes>
+Notes:
+
+- Uses the browser's Service Worker API to create a mock server
+- This intercepts network requests and handles them with our mocked responses
+- Defines mocks at the network level
+
+Advantages:
+
+- You don't have to explicitly mock fetch or axios every time you need to use it
+- If you have multiple components using the same request, you can mock it out in one location
+- Can also be used in the browser as well (you can see all actual network requests)
+
+</Notes>
+
 ---
 
 <CodeSurfer>
@@ -324,15 +339,21 @@ Name "":
 import "@testing-library/jest-dom";
 import { mswServer } from "./mocks/msw-worker";
 
-// start server listening at the beginning of any test run
 beforeAll(() => mswServer.listen());
-// reset handlers to initial chosen values
 afterEach(() => mswServer.resetHandlers());
-// close the server after every test run
 afterAll(() => mswServer.close());
 ```
 
 </CodeSurfer>
+
+<Notes>
+Notes:
+
+- Start server listening at the beginning of any test run
+- Reset handlers to initial chosen values
+- Close the server after every test run
+
+</Notes>
 
 ---
 
